@@ -28,6 +28,9 @@ class CookieSession {
 	// 启动session
 	function start($sid = '') {
 		session_set_cookie_params ( 0, "/", DOMAIN_NAME );
+		if ($sid) {
+			session_id ( $sid );
+		}
 	}
 	function _start() {
 		if (! $this->isStart) {
