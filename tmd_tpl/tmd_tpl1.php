@@ -34,51 +34,19 @@ class tmd_tpl {
 	
 	// 用于存储模板变量
 	public $data = array ();
-	function __construct($cfg = NULL) {
-		if ($cfg) {
-			$this->config ( $cfg );
-		}
+	
+	function __construct() {
 	}
-	function config($cfg) {
-		if (is_string ( $cfg )) {
-			$cfg = require $cfg;
-		}
-		if (isset ( $cfg ['tpl_dir'] )) {
-			$this->tpl_dir = $cfg ['tpl_dir'];
-		}
-		if (isset ( $cfg ['tpl_ext'] )) {
-			$this->tpl_ext = $cfg ['tpl_ext'];
-		}
-		if (isset ( $cfg ['cache_dir'] )) {
-			$this->cache_dir = $cfg ['cache_dir'];
-		}
-		if (isset ( $cfg ['cache_time'] )) {
-			$this->cache_time = $cfg ['cache_time'];
-		}
-		if (isset ( $cfg ['my_rep'] )) {
-			$this->my_rep = $cfg ['my_rep'];
-		}
-		if (isset ( $cfg ['data'] )) {
-			$this->data = $cfg ['data'];
-		}
-	}
+
 	// 赋值
 	function assign($name, $value = NULL) {
-		if (is_array ( $name )) {
-			foreach ( $name as $k => $v ) {
-				$this->data [$k] = $v;
-			}
-		} else {
-			$this->data [$name] = &$value;
-		}
+		$this->data [$name] = $value;
 	}
 	
 	// 将类的公共变量赋值
 	function assignObj($obj) {
 		$data = get_object_vars ( $obj );
-		foreach ( $data as $key => $value ) {
-			$this->Assign ( $key, $value );
-		}
+		$this->data = array_merge($this->data, (array)$data);
 	}
 	// 输出页面
 	function display($tpl_file) {
