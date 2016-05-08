@@ -135,14 +135,14 @@ class CookieSession {
 	function set($key, $value) {
 		$this->_start ();
 		$this->S [$key] = $value;
-		$this->set_cookie ( $this->k, $this->encode ( $this->S ), 8640000 + time () );
+		$this->set_cookie ( $this->k, $this->encode ( $this->S ), 0 );
 		return true;
 	}
 	function delete($key) {
 		$this->_start ();
 		if(isset($this->S [$key])){
 			unset ( $this->S [$key] );
-			$this->set_cookie ( $this->k, $this->encode ( $this->S ), 8640000 + time () );
+			$this->set_cookie ( $this->k, $this->encode ( $this->S ), 0 );
 		}
 		return true;
 	}
