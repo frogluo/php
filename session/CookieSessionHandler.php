@@ -11,10 +11,7 @@ class CookieSessionHandler implements SessionHandlerInterface {
 	private $S = array ();
 	private $k = 'smesd';
 	private $isChange = false;
-	/**
-	 * 初始化时注册方法，设置保存方式。
-	 * 将session数据保存到数据库。
-	 */
+
 	function __construct() {
 	}
 	
