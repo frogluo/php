@@ -3,7 +3,7 @@
 	使用HTTP协议，通用都是用户来调用REST API。
 	
 	客户端功能类型memcache的客户端，由客户端决定调用的服务端。
-	而转发控制类型以nginx反向代理转发，但功能上相对简单。
+	而转发控制类似于nginx反向代理转发，但功能上相对简单。
 		
     require 'HAHttpCall.php';
 		
